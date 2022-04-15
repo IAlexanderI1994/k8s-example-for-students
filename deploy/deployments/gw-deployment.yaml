@@ -19,8 +19,10 @@ spec:
         - env:
             - name: SVC_URL
               value: test
-          image: alexkir1994/sms-gw:1.0.0
+          image: sms-gw:1.0.0
           name: sms-gateway
           resources: {}
           stdin: true
+          imagePullPolicy: Never
       restartPolicy: Always
+
