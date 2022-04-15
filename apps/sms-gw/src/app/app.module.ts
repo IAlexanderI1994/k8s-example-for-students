@@ -10,7 +10,7 @@ import {AppService} from './app.service';
         transport: Transport.TCP,
         options: {
           port: 3001,
-          host: 'sms-service',
+          host: process.env.SMS_SERVICE_HOST,
         }
       },
     ]),

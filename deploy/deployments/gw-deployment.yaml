@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
         - env:
-            - name: SVC_URL
-              value: test
+            - name: SMS_SERVICE_HOST
+              value: sms-service.default.svc.cluster.local
           image: sms-gw:1.0.0
           name: sms-gateway
           resources: {}
