@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    serviceName: gw
+  name: gw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      serviceName: gw
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        serviceName: gw
+    spec:
+      containers:
+        - env:
+            - name: SVC_URL
+              value: test
+          image: alexkir1994/sms-gw:1.0.0
+          name: sms-gateway
+          resources: {}
+          stdin: true
+      restartPolicy: Always

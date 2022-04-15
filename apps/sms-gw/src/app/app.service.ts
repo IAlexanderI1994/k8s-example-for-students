@@ -13,8 +13,13 @@ export class AppService implements OnModuleInit {
       const pattern = { cmd: 'sum' };
       const payload = [1, 2, 3];
       console.log('tick')
-      await this.client.send<number>(pattern, payload).toPromise();
+      try {
+        await this.client.send<number>(pattern, payload).toPromise();
 
+      }
+      catch (e) {
+        console.error(e.message, e.trace)
+      }
 
     }, 2000)
 

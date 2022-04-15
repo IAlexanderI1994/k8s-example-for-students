@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    serviceName: svc
+  name: svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      serviceName: svc
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        serviceName: svc
+    spec:
+      containers:
+        - env:
+            - name: GW_URL
+              value: test
+          image: alexkir1994/sms-svc:1.0.0
+          name: sms-service
+          resources: {}
+          stdin: true
+      restartPolicy: Always
