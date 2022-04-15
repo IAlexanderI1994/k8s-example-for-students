@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "k8s": "apps/k8s"
+    "sms-gw": "apps/sms-gw",
+    "sms-svc": "apps/sms-svc"
   }
 }

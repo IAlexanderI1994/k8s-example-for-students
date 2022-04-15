@@ -14,8 +14,8 @@ describe('AppService', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to k8s!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to k8s!' });
+    it('should return "Welcome to sms-gw!"', () => {
+      expect(service.getData()).toEqual({ message: 'Welcome to sms-gw!' });
     });
   });
 });

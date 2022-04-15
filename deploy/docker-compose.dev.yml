@@ -1,0 +1,26 @@
+version: '3'
+services:
+  gw:
+    stdin_open: true
+    container_name: sms-gateway
+    build:
+      context: ./
+      dockerfile: ../deploy/dev.Dockerfile
+      args:
+        APP_NAME: 'gateway'
+    volumes:
+      - ../:/app
+    environment:
+      SVC_URL: 'test'
+  svc:
+    stdin_open: true
+    container_name: sms-service
+    build:
+      context: ./
+      dockerfile: ../deploy/dev.Dockerfile
+      args:
+        APP_NAME: 'service'
+    volumes:
+      - ../:/app
+    environment:
+      GW_URL: 'test'

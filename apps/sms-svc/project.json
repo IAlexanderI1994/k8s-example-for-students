@@ -1,16 +1,15 @@
 {
-  "root": "apps/k8s",
-  "sourceRoot": "apps/k8s/src",
+  "root": "apps/sms-svc",
+  "sourceRoot": "apps/sms-svc/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/k8s",
-        "main": "apps/k8s/src/main.ts",
-        "tsConfig": "apps/k8s/tsconfig.app.json",
-        "assets": ["apps/k8s/src/assets"]
+        "outputPath": "dist/apps/sms-svc",
+        "main": "apps/sms-svc/src/main.ts",
+        "tsConfig": "apps/sms-svc/tsconfig.app.json"
       },
       "configurations": {
         "production": {
@@ -18,10 +17,6 @@
           "extractLicenses": true,
           "inspect": false,
           "fileReplacements": [
-            {
-              "replace": "apps/k8s/src/environments/environment.ts",
-              "with": "apps/k8s/src/environments/environment.prod.ts"
-            }
           ]
         }
       }
@@ -29,21 +24,21 @@
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {
-        "buildTarget": "k8s:build"
+        "buildTarget": "sms-svc:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/k8s/**/*.ts"]
+        "lintFilePatterns": ["apps/sms-svc/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/k8s"],
+      "outputs": ["coverage/apps/sms-svc"],
       "options": {
-        "jestConfig": "apps/k8s/jest.config.js",
+        "jestConfig": "apps/sms-svc/jest.config.js",
         "passWithNoTests": true
       }
     }
